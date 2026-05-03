@@ -1,0 +1,558 @@
+[
+  {
+    "id": 1,
+    "name": "Mono Triple Set",
+    "category": "coffee_table",
+    "categoryName": "Coffee Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_1.jpg?v=1777581894",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_2.jpg?v=1777581892",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_3.jpg?v=1777581894"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Metro Triple Sehpa",
+    "category": "coffee_table",
+    "categoryName": "Coffee Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4535cf55-69a1-4b90-a473-32ade1d7220a.png?v=1777581829",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_1_72c51b3e-c8b1-4ee4-9e4a-85001c9ca896.jpg?v=1777581455",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_2_7ca725c5-38f2-4d7a-b5b4-87df4a45b5f2.jpg?v=1777581455",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_3_8e374258-e81c-4ec8-8b84-03402f569b74.jpg?v=1777581456"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Moxie Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5b7d7732-cbd7-49a1-a000-8a184ae8c9c0.png?v=1777581253",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ZEN_SANDALYE-MOXIE_CHAIR_1.jpg?v=1777581130"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Apex Natural Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_fd46c02b-4e08-4ee4-9b35-bbe9ce5eb041.png?v=1777581115",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VIOLET_WICKER-APEX_NATURAL_CHAIR_1.jpg?v=1777581005"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Delta Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4823de69-1703-4f89-9e5a-7c2d80b40590.png?v=1777580984",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VIOLET_SANDALYE-DELTA_CHAIR_1.jpg?v=1777580900"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Venice Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_8432df98-4317-40c9-aa47-c2a6f9211f8d.png?v=1777580827",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VENEDIK_SANDALYE-AMBER_CHAIR_1.jpg?v=1777580639"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Orbit Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_1.jpg?v=1777580511"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Block Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_6b46b753-77e2-4783-bee0-a0e33cfc1fd0.png?v=1777580494",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ROMA_SANDALYE-BLOCK_WOOD_CHAIR_1.jpg?v=1777580350"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Halo Cane Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_04dc6cc1-6f20-4f9c-a4c1-215102079754.png?v=1777580362",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIGA_WICKER-HALO_CANE_CHAIR_1-1.jpg?v=1777580283"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Shell Loft Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_0def9e93-6885-41db-96ab-13814e6c3a47.png?v=1777562855",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIGA_SANDALYE-SHELL_LOFT_CHAIR_1_9163128d-c286-41c3-8da7-ef6ff20a2bb3.jpg?v=1777562785"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Oslo Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_a6fe2b9e-48e8-4ae9-a075-39078db20ecd.png?v=1777562709",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/pyke_-_OSLO_WOOD_CHAIR_1_58862974-a674-4e4f-b8b5-9e0ce8832581.jpg?v=1777562638"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Zeta Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_000d6bbe-bd80-4465-94aa-b74795413c70.png?v=1777562172",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/PIER_SANDALYE-VINTA_CHAIR_1_29dcc288-4734-42e3-a57d-5b7b2346365f.jpg?v=1777561972"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Sunset Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_f92198e0-95f0-43b1-8e5d-1233009cd2d3.png?v=1777561905",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/PARIS_SANDALYE-SUNSET_CHAIR_1_910ad7c3-b72e-44c6-884a-f923df83fc77.jpg?v=1777561840"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Alba Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5b148a5e-8d50-4cf8-8f0a-bfdc69ccb68f.png?v=1777561779",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NEVADA_SANDALYE-ALBA_CHAIR_1_1f9d4440-96e6-46a5-8e5f-59761197681d.webp?v=1777561703"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Vinta Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_48382f95-e232-44c2-ba77-eb1267acaad3.png?v=1777561604",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NEST_SANDALYE_-VINTA_CHAIR_1.jpg?v=1777561508"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Arcade Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_a3b3bc89-a9e3-489b-8f50-8d349579cfa6.png?v=1777560916",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MOON_SANDALYE-ARCADE_WOOD_CHAIR_1-1.jpg?v=1777561378"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Spindle Retro Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_48d32dcb-700b-492e-a7c1-907706a6eaf2.png?v=1777560778",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MONZA_SANDALYE-SPINDLE_RETRO_CHAIR_1.jpg?v=1777560710"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Amber Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_e88834a5-f34b-4b64-9d93-33c765b88c15.png?v=1777559757",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASS_SANDALYE-AMBER_WOOD_CHAIR_1.jpg?v=1777559440"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Lumina Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4fdcc7b4-b943-465a-b83a-500d463c5f6f.png?v=1777559443",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MARINA_SANDALYE-LUMINA_WOOD_CHAIR_1.jpg?v=1777559376"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Core Modern Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7c54a4ea-ddb3-45cf-af63-f24f70c27f73.png?v=1777559279",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/LUCY_-CORE_MODERN_CHAIR_1.jpg?v=1777559162"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Metro Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_65530081-e210-40b6-8251-e776da7093e3.png?v=1777559094",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/LOTUS_SANDALYE-METRO_WOOD_CHAIR_1.jpg?v=1777559000"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Metropolitan Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_63c1d825-74e9-46b1-9860-e17c9990f609.png?v=1777558946",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DOVE_SANDALYE-METROPOLITAN_CHAIR_1.jpg?v=1777558882"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Retro Cane Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_2b7eff72-5bd5-4e2f-80e7-5f8b6d1aaec1.png?v=1777558824",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DANTE_WICKER-RETRO_CANE_CHAIR_1.jpg?v=1777558759"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Novo Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_f4b22d94-5d04-44f8-8314-bb3a78d12ad1.png?v=1777558691",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DALE_SANDALYE_-NOVO_CHAIR_1.jpg?v=1777558631"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Essence Gold Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_cac7715c-8973-4ffe-95a9-b5b5480d64c7.png?v=1777481507",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/CORVET_SANDALYE-ESSENCE_GOLD_CHAIR_1.jpg?v=1777481441"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Cozy Wood Chair",
+    "category": "chair",
+    "categoryName": "Chair",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_00990bd7-d8b5-4cac-9dcb-7787e98df379.png?v=1777481202",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/COOPER_SANDALYE_1-COZY_WOOD_CHAIR_5fff7362-6383-4c39-895c-72c6af077f3c.jpg?v=1777481113"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Axis Oval White",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_d537b216-38cd-4722-b6d7-a98058b557f9.png?v=1777480796",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3054-1.jpg?v=1777480717"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Axis Oval Black",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_8ddc8cf6-942b-4e6c-9e49-462084871f13.png?v=1777480305",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3066-1.jpg?v=1777480235"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Pure Marble",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_58b21bd4-e6b1-4422-89e4-836fffa3bbf1.png?v=1777479758",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3075-1.jpg?v=1777479682"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Marble Flute",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_bf8b33d9-bdbe-468a-a76b-6c4c77ccd7d4.png?v=1777478340",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3092-1.jpg?v=1777477997"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Urban Pearl",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ac0b7ec6-aaa8-4b22-94b0-9b8801b0a0d9.png?v=1777404209",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3157-1.jpg?v=1777404119"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Urban White",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_929413f6-d75a-4b6b-9f63-be0d71c9599f.png?v=1777404033",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3165-1.jpg?v=1777403967"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Flute Beech",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_14772ef0-f18d-4602-83c2-383449b502bc.png?v=1777403052",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3214-1.jpg?v=1777402904"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Flute Walnut",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_dacd7204-9376-46c2-824d-10199bf0cbcd.png?v=1777402750",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3186-1.jpg?v=1777402544"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Storm White",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5a5fe19e-bf73-4815-9ad2-d7be240f9585.png?v=1777402286",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3200-1.jpg?v=1777402145"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Heritage Walnut",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-walnut-ev-ortam-1.png?v=1777400902",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3136-1.jpg?v=1777400841"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Heritage Beech",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-beech-ev-ortam-1.png?v=1777400692",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3219-1.jpg?v=1777400611"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Heritage White/Black",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_d8379545-5f53-498c-8042-5ee78d97a5fe.png?v=1777400447",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3086-1.jpg?v=1777400344"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Nordic Contrast",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_b0691546-61d2-4f73-81f9-3a2fa4e5dfe0.png?v=1777324280",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3178_4.jpg?v=1777324083"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Nordic Marble",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_e6c9dabc-3a76-4a79-b08e-05f18f5579b4.png?v=1777323975",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3171-1.jpg?v=1777323852"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Cone Oak",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_593aa66d-75c3-4341-9680-ffd5bfea2e32.png?v=1777323727",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3206-1.jpg?v=1777323530"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Cone Walnut",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/cone-walnut-ev-ortam.png?v=1777323329",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3195-1.jpg?v=1777322900"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Urban Noir",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3146_1.jpg?v=1777320952",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3147_1.jpg?v=1777320952"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Urban Walnut",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3112-KUCUK.jpg?v=1777319239",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3114-KUCUK.jpg?v=1777319599"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Torino Masa",
+    "category": "dining_table",
+    "categoryName": "Dining Table",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/torino3.png?v=1776720287",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TORINO_1_3_1.jpg?v=1776720287"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Nora Yatak",
+    "category": "bed",
+    "categoryName": "Bed",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA2.jpg?v=1776104578",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA6.jpg?v=1776104578"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Riva Yemek Odası",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA7.jpg?v=1776103063",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA1.jpg?v=1776103321"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Noir Line",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NOIR1.jpg?v=1776101493",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NOIR3.jpg?v=1776101492"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Rio Masa",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO1.jpg?v=1776098518",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO4.jpg?v=1776098519"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Verta Seramik",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VERTA2_90219d3d-2d5e-47b9-a5ba-2a477eda0232.jpg?v=1776097180",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VERTA1_16d76313-b58a-44c2-b074-32d2b89bcd67.jpg?v=1776097180"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Roseir Masa",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image.png?v=1776093943",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3181.jpg?v=1776093943"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Milano Masa",
+    "category": "furniture_set",
+    "categoryName": "Furniture Set",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MILANO2.jpg?v=1776093687",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MILANO.jpg?v=1776093687"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Madrid Köşe Koltuk",
+    "category": "corner_sofa",
+    "categoryName": "Corner Sofa",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_1.jpg?v=1776093146",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_2.jpg?v=1776093146"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Marea Köşe Koltuk",
+    "category": "corner_sofa",
+    "categoryName": "Corner Sofa",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/587302596_17851196079600970_4980043478742266066_n_139c51c3-0767-47c6-9f29-efda42a3cfe7.jpg?v=1776090485"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Assos Köşe Koltuk",
+    "category": "corner_sofa",
+    "categoryName": "Corner Sofa",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376",
+      "https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_9_07a36c7f-b965-432c-b0f6-368be2ebe5d2.jpg?v=1776093376"
+    ]
+  }
+]

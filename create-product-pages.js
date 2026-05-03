@@ -1,9 +1,28 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+
+const products = JSON.parse(fs.readFileSync('final-products.json', 'utf8'));
+
+const translations = {
+  TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', orderInstagram: "Instagram'dan Sipariş Ver", backToProducts: 'Ürünlere Dön', price: 'Fiyat İçin İletişime Geçin', description: 'Premium kalite mobilya, detaylara özen gösterilerek üretilmiştir.', contactText: "Detaylı fiyatlandırma için Instagram'dan bize ulaşın.", features: 'Ürün Özellikleri', feature1: 'Premium kalite malzemeler', feature2: 'Modern Avrupa tasarımı', feature3: '2 yıl garanti dahil', feature4: 'Avrupa çapında teslimat', feature5: 'Kapıda ödeme seçeneği' },
+  EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', orderInstagram: 'Order via Instagram', backToProducts: 'Back to Products', price: 'Contact for Price', description: 'Premium quality furniture crafted with attention to detail.', contactText: 'Contact us on Instagram for detailed pricing.', features: 'Product Features', feature1: 'Premium quality materials', feature2: 'Modern European design', feature3: '2-year warranty included', feature4: 'Europe-wide delivery', feature5: 'Cash on delivery option' },
+  DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', orderInstagram: 'Über Instagram bestellen', backToProducts: 'Zurück zu Produkten', price: 'Preis auf Anfrage', description: 'Hochwertige Möbel mit Liebe zum Detail.', contactText: 'Kontaktieren Sie uns auf Instagram.', features: 'Produkteigenschaften', feature1: 'Hochwertige Materialien', feature2: 'Modernes europäisches Design', feature3: '2 Jahre Garantie inklusive', feature4: 'Lieferung in ganz Europa', feature5: 'Zahlung bei Lieferung' },
+  FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', orderInstagram: 'Commander via Instagram', backToProducts: 'Retour aux produits', price: 'Prix sur demande', description: 'Meubles de qualité premium fabriqués avec attention.', contactText: 'Contactez-nous sur Instagram.', features: 'Caractéristiques', feature1: 'Matériaux de qualité premium', feature2: 'Design européen moderne', feature3: 'Garantie 2 ans incluse', feature4: 'Livraison en Europe', feature5: 'Paiement à la livraison' },
+  AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', orderInstagram: 'اطلب عبر انستغرام', backToProducts: 'العودة للمنتجات', price: 'السعر عند الطلب', description: 'أثاث عالي الجودة مصنوع بعناية.', contactText: 'تواصل معنا على انستغرام.', features: 'مميزات المنتج', feature1: 'مواد عالية الجودة', feature2: 'تصميم أوروبي عصري', feature3: 'ضمان سنتين شامل', feature4: 'توصيل في جميع أنحاء أوروبا', feature5: 'الدفع عند الاستلام' }
+};
+
+function createProductPage(product) {
+  const mainImage = product.images[0];
+  const thumbnails = product.images.map((img, idx) => 
+    `<img src="${img}" class="thumb${idx === 0 ? ' active' : ''}" onclick="changeImage(${product.id}, '${img}', this)" alt="">`
+  ).join('');
+  
+  return `<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essence Gold Chair - NORDIVA HOME EUROPE</title>
+    <title>${product.name} - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
@@ -64,12 +83,12 @@
         <a href="/products.html" class="back-link" data-lang="backToProducts">← Ürünlere Dön</a>
         <div class="product-container">
             <div class="gallery">
-                <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_cac7715c-8973-4ffe-95a9-b5b5480d64c7.png?v=1777481507" id="main-image-25" class="main-image" alt="">
-                <div class="thumbnails"><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_cac7715c-8973-4ffe-95a9-b5b5480d64c7.png?v=1777481507" class="thumb active" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_cac7715c-8973-4ffe-95a9-b5b5480d64c7.png?v=1777481507', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/CORVET_SANDALYE-ESSENCE_GOLD_CHAIR_1.jpg?v=1777481441" class="thumb" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/CORVET_SANDALYE-ESSENCE_GOLD_CHAIR_1.jpg?v=1777481441', this)" alt=""></div>
+                <img src="${mainImage}" id="main-image-${product.id}" class="main-image" alt="">
+                <div class="thumbnails">${thumbnails}</div>
             </div>
             <div class="product-info">
-                <div class="product-category">Sandalye</div>
-                <h1>Essence Gold Chair</h1>
+                <div class="product-category">${product.categoryNameTR}</div>
+                <h1>${product.name}</h1>
                 <div class="product-price" data-lang="price">Fiyat İçin İletişime Geçin</div>
                 <div class="product-description">
                     <p data-lang="description">Premium kalite mobilya, detaylara özen gösterilerek üretilmiştir.</p>
@@ -95,7 +114,7 @@
     </footer>
 
     <script>
-        const translations = {"TR":{"home":"Ana Sayfa","products":"Ürünler","about":"Hakkımızda","contact":"İletişim","delivery":"Teslimat","orderInstagram":"Instagram'dan Sipariş Ver","backToProducts":"Ürünlere Dön","price":"Fiyat İçin İletişime Geçin","description":"Premium kalite mobilya, detaylara özen gösterilerek üretilmiştir.","contactText":"Detaylı fiyatlandırma için Instagram'dan bize ulaşın.","features":"Ürün Özellikleri","feature1":"Premium kalite malzemeler","feature2":"Modern Avrupa tasarımı","feature3":"2 yıl garanti dahil","feature4":"Avrupa çapında teslimat","feature5":"Kapıda ödeme seçeneği"},"EN":{"home":"Home","products":"Products","about":"About","contact":"Contact","delivery":"Delivery","orderInstagram":"Order via Instagram","backToProducts":"Back to Products","price":"Contact for Price","description":"Premium quality furniture crafted with attention to detail.","contactText":"Contact us on Instagram for detailed pricing.","features":"Product Features","feature1":"Premium quality materials","feature2":"Modern European design","feature3":"2-year warranty included","feature4":"Europe-wide delivery","feature5":"Cash on delivery option"},"DE":{"home":"Startseite","products":"Produkte","about":"Über uns","contact":"Kontakt","delivery":"Lieferung","orderInstagram":"Über Instagram bestellen","backToProducts":"Zurück zu Produkten","price":"Preis auf Anfrage","description":"Hochwertige Möbel mit Liebe zum Detail.","contactText":"Kontaktieren Sie uns auf Instagram.","features":"Produkteigenschaften","feature1":"Hochwertige Materialien","feature2":"Modernes europäisches Design","feature3":"2 Jahre Garantie inklusive","feature4":"Lieferung in ganz Europa","feature5":"Zahlung bei Lieferung"},"FR":{"home":"Accueil","products":"Produits","about":"À propos","contact":"Contact","delivery":"Livraison","orderInstagram":"Commander via Instagram","backToProducts":"Retour aux produits","price":"Prix sur demande","description":"Meubles de qualité premium fabriqués avec attention.","contactText":"Contactez-nous sur Instagram.","features":"Caractéristiques","feature1":"Matériaux de qualité premium","feature2":"Design européen moderne","feature3":"Garantie 2 ans incluse","feature4":"Livraison en Europe","feature5":"Paiement à la livraison"},"AR":{"home":"الرئيسية","products":"المنتجات","about":"من نحن","contact":"اتصل بنا","delivery":"التوصيل","orderInstagram":"اطلب عبر انستغرام","backToProducts":"العودة للمنتجات","price":"السعر عند الطلب","description":"أثاث عالي الجودة مصنوع بعناية.","contactText":"تواصل معنا على انستغرام.","features":"مميزات المنتج","feature1":"مواد عالية الجودة","feature2":"تصميم أوروبي عصري","feature3":"ضمان سنتين شامل","feature4":"توصيل في جميع أنحاء أوروبا","feature5":"الدفع عند الاستلام"}};
+        const translations = ${JSON.stringify(translations)};
         function changeImage(productId, src, thumb) {
             document.getElementById('main-image-' + productId).src = src;
             document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
@@ -117,4 +136,13 @@
         changeLanguage(savedLang);
     </script>
 </body>
-</html>
+</html>`;
+}
+
+const productsDir = path.join(__dirname, 'products');
+products.forEach(product => {
+  const html = createProductPage(product);
+  fs.writeFileSync(path.join(productsDir, `product-${product.id}.html`), html);
+  console.log(`Created: product-${product.id}.html`);
+});
+console.log(`\nCreated ${products.length} product pages!`);

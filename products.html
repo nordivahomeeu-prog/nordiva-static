@@ -1,39 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - NORDIVA HOME EUROPE</title>
+    <title>Ürünler - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; }
-        
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
         header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
-        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
         nav a:hover { color: #1e293b; }
-        
-        .products { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-        .products h1 { font-size: 2rem; margin-bottom: 2rem; color: #1e293b; }
-        
-        .filters { margin-bottom: 2rem; }
-        .filter-btn { display: inline-block; padding: 0.5rem 1rem; margin-right: 0.5rem; margin-bottom: 0.5rem; border-radius: 9999px; background: white; border: 1px solid #e2e8f0; color: #64748b; cursor: pointer; text-decoration: none; font-size: 0.9rem; }
+        .lang-selector select { padding: 0.25rem 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.25rem; background: white; cursor: pointer; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 2rem; color: #1e293b; }
+        .filters { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; border: 1px solid #e2e8f0; background: white; border-radius: 2rem; cursor: pointer; transition: all 0.2s; }
         .filter-btn:hover, .filter-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
-        
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
-        
-        .product-card { background: white; border-radius: 0.75rem; overflow: hidden; border: 1px solid #e2e8f0; transition: box-shadow 0.2s; }
-        .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .product-image { width: 100%; height: 250px; object-fit: cover; background: #f1f5f9; }
+        .product-card { background: white; border-radius: 0.75rem; overflow: hidden; border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; }
         .product-info { padding: 1.5rem; }
+        .product-category { color: #64748b; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 0.5rem; }
         .product-name { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem; }
-        .product-category { color: #64748b; font-size: 0.85rem; text-transform: uppercase; }
-        .product-price { color: #0f172a; font-weight: 600; margin-top: 0.5rem; }
-        .order-btn { display: block; width: 100%; margin-top: 1rem; padding: 0.75rem; background: #0f172a; color: white; text-align: center; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
-        .order-btn:hover { background: #1e293b; }
-        
+        .product-price { color: #0f172a; font-weight: 600; margin-bottom: 1rem; }
+        .view-btn { display: block; text-align: center; padding: 0.75rem; background: #0f172a; color: white; border-radius: 0.5rem; font-size: 0.9rem; }
         footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+        [dir="rtl"] { direction: rtl; }
     </style>
 </head>
 <body>
@@ -41,192 +37,103 @@
         <div class="header-content">
             <a href="/" class="logo">NORDIVA</a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/products.html">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/delivery.html">Delivery</a>
+                <a href="/" data-lang="home">Ana Sayfa</a>
+                <a href="/products.html" data-lang="products">Ürünler</a>
+                <a href="/about.html" data-lang="about">Hakkımızda</a>
+                <a href="/contact.html" data-lang="contact">İletişim</a>
+                <a href="/delivery.html" data-lang="delivery">Teslimat</a>
+                <div class="lang-selector">
+                    <select id="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="TR">🇹🇷 TR</option>
+                        <option value="EN">🇬🇧 EN</option>
+                        <option value="DE">🇩🇪 DE</option>
+                        <option value="FR">🇫🇷 FR</option>
+                        <option value="AR">🇸🇦 AR</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
 
-    <section class="products">
-        <h1>Our Products</h1>
+    <div class="content">
+        <h1 data-lang="title">Ürünlerimiz</h1>
         
         <div class="filters">
-            <a href="/products.html" class="filter-btn active" data-filter="all">All</a>
-            <a href="?category=sofa" class="filter-btn" data-filter="sofa">Sofas</a>
-            <a href="?category=corner_sofa" class="filter-btn" data-filter="corner_sofa">Corner Sofas</a>
-            <a href="?category=dining_table" class="filter-btn" data-filter="dining_table">Dining Tables</a>
-            <a href="?category=chair" class="filter-btn" data-filter="chair">Chairs</a>
-            <a href="?category=coffee_table" class="filter-btn" data-filter="coffee_table">Coffee Tables</a>
-            <a href="?category=furniture_set" class="filter-btn" data-filter="furniture_set">Furniture Sets</a>
+            <button class="filter-btn active" onclick="filterProducts('all')" data-lang="all">Tümü</button>
+            <button class="filter-btn" onclick="filterProducts('coffee_table')" data-lang="coffee_table">Sehpa</button>
+            <button class="filter-btn" onclick="filterProducts('chair')" data-lang="chair">Sandalye</button>
+            <button class="filter-btn" onclick="filterProducts('dining_table')" data-lang="dining_table">Yemek Masası</button>
+            <button class="filter-btn" onclick="filterProducts('corner_sofa')" data-lang="corner_sofa">Köşe Koltuk</button>
         </div>
 
         <div class="product-grid" id="product-grid"></div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
     </footer>
 
     <script>
-        const allProducts = [
-            {id: 1, name: 'Madrid Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madrid-sofa.png'},
-            {id: 2, name: 'Marea Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/marea-sofa.png'},
-            {id: 3, name: 'Assos Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/assos-sofa.png'},
-            {id: 4, name: 'Nora Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nora-bed.png'},
-            {id: 5, name: 'Riva Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/riva-set.png'},
-            {id: 6, name: 'Rio Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/rio-set.png'},
-            {id: 7, name: 'Verta Seramik Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/verta-set.png'},
-            {id: 8, name: 'Roseir Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/roseir-set.png'},
-            {id: 9, name: 'Milano Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/milano-set.png'},
-            {id: 10, name: 'Noir Line Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/noir-set.png'},
-            {id: 11, name: 'Arno Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/arno-set.png'},
-            {id: 12, name: 'Axis Oval Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/axis-table.png'},
-            {id: 13, name: 'Pure Marble Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/pure-marble.png'},
-            {id: 14, name: 'Urban Pearl Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/urban-table.png'},
-            {id: 15, name: 'Flute Beech Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/flute-beech.png'},
-            {id: 16, name: 'Moxie Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/moxie-chair.png'},
-            {id: 17, name: 'Apex Natural Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/apex-chair.png'},
-            {id: 18, name: 'Delta Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/delta-chair.png'},
-            {id: 19, name: 'Venice Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/venice-chair.png'},
-            {id: 20, name: 'Orbit Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/orbit-chair.png'},
-            {id: 21, name: 'Mono Triple Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/mono-triple.png'},
-            {id: 22, name: 'Metro Triple Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/metro-triple.png'},
-            {id: 23, name: 'Classic Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/classic-sofa.png'},
-            {id: 24, name: 'Modern Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/modern-sofa.png'},
-            {id: 25, name: 'Lounge Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/lounge-sofa.png'},
-            {id: 26, name: 'Heritage Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-table.png'},
-            {id: 27, name: 'Nordic Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nordic-table.png'},
-            {id: 28, name: 'Cone Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/cone-table.png'},
-            {id: 29, name: 'Torino Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/torino-table.png'},
-            {id: 30, name: 'Masami Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/masami-table.png'},
-            {id: 31, name: 'Luna Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/luna-sofa.png'},
-            {id: 32, name: 'Amber Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/amber-sofa.png'},
-            {id: 33, name: 'Celine Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/celine-sofa.png'},
-            {id: 34, name: 'Dante Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/dante-sofa.png'},
-            {id: 35, name: 'Elara Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/elara-sofa.png'},
-            {id: 36, name: 'Fiona Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/fiona-sofa.png'},
-            {id: 37, name: 'Gala Dining Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/gala-table.png'},
-            {id: 38, name: 'Halo Dining Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/halo-table.png'},
-            {id: 39, name: 'Iris Dining Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/iris-table.png'},
-            {id: 40, name: 'Jade Dining Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/jade-table.png'},
-            {id: 41, name: 'Kira Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/kira-chair.png'},
-            {id: 42, name: 'Lena Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/lena-chair.png'},
-            {id: 43, name: 'Mila Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/mila-chair.png'},
-            {id: 44, name: 'Nina Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nina-chair.png'},
-            {id: 45, name: 'Opal Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/opal-table.png'},
-            {id: 46, name: 'Pearl Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/pearl-table.png'},
-            {id: 47, name: 'Quartz Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/quartz-table.png'},
-            {id: 48, name: 'Ruby Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ruby-table.png'},
-            {id: 49, name: 'Sage Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/sage-set.png'},
-            {id: 50, name: 'Terra Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/terra-set.png'},
-            {id: 51, name: 'Uma Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/uma-set.png'},
-            {id: 52, name: 'Vera Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/vera-set.png'},
-            {id: 53, name: 'Wynn Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/wynn-set.png'},
-            {id: 54, name: 'Xena Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/xena-bed.png'},
-            {id: 55, name: 'Yara Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/yara-bed.png'},
-            {id: 56, name: 'Zara Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/zara-bed.png'},
-            {id: 57, name: 'Atlas Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/atlas-bed.png'},
-            {id: 58, name: 'Bliss Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/bliss-bed.png'},
-            {id: 59, name: 'Cloud Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/cloud-bed.png'},
-        ];
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get('category');
+        const products = [{"id":1,"name":"Mono Triple Set","category":"coffee_table","categoryNameTR":"Sehpa","categoryNameEN":"Coffee Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_1.jpg?v=1777581894","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_2.jpg?v=1777581892","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_3.jpg?v=1777581894"]},{"id":2,"name":"Metro Triple Sehpa","category":"coffee_table","categoryNameTR":"Sehpa","categoryNameEN":"Coffee Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4535cf55-69a1-4b90-a473-32ade1d7220a.png?v=1777581829","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_1_72c51b3e-c8b1-4ee4-9e4a-85001c9ca896.jpg?v=1777581455","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_2_7ca725c5-38f2-4d7a-b5b4-87df4a45b5f2.jpg?v=1777581455","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS_3_8e374258-e81c-4ec8-8b84-03402f569b74.jpg?v=1777581456"]},{"id":3,"name":"Moxie Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5b7d7732-cbd7-49a1-a000-8a184ae8c9c0.png?v=1777581253","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ZEN_SANDALYE-MOXIE_CHAIR_1.jpg?v=1777581130"]},{"id":4,"name":"Apex Natural Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_fd46c02b-4e08-4ee4-9b35-bbe9ce5eb041.png?v=1777581115","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VIOLET_WICKER-APEX_NATURAL_CHAIR_1.jpg?v=1777581005"]},{"id":5,"name":"Delta Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4823de69-1703-4f89-9e5a-7c2d80b40590.png?v=1777580984","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VIOLET_SANDALYE-DELTA_CHAIR_1.jpg?v=1777580900"]},{"id":6,"name":"Venice Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_8432df98-4317-40c9-aa47-c2a6f9211f8d.png?v=1777580827","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VENEDIK_SANDALYE-AMBER_CHAIR_1.jpg?v=1777580639"]},{"id":7,"name":"Orbit Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_1.jpg?v=1777580511"]},{"id":8,"name":"Block Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_6b46b753-77e2-4783-bee0-a0e33cfc1fd0.png?v=1777580494","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ROMA_SANDALYE-BLOCK_WOOD_CHAIR_1.jpg?v=1777580350"]},{"id":9,"name":"Halo Cane Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_04dc6cc1-6f20-4f9c-a4c1-215102079754.png?v=1777580362","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIGA_WICKER-HALO_CANE_CHAIR_1-1.jpg?v=1777580283"]},{"id":10,"name":"Shell Loft Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_0def9e93-6885-41db-96ab-13814e6c3a47.png?v=1777562855","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIGA_SANDALYE-SHELL_LOFT_CHAIR_1_9163128d-c286-41c3-8da7-ef6ff20a2bb3.jpg?v=1777562785"]},{"id":11,"name":"Oslo Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_a6fe2b9e-48e8-4ae9-a075-39078db20ecd.png?v=1777562709","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/pyke_-_OSLO_WOOD_CHAIR_1_58862974-a674-4e4f-b8b5-9e0ce8832581.jpg?v=1777562638"]},{"id":12,"name":"Zeta Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_000d6bbe-bd80-4465-94aa-b74795413c70.png?v=1777562172","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/PIER_SANDALYE-VINTA_CHAIR_1_29dcc288-4734-42e3-a57d-5b7b2346365f.jpg?v=1777561972"]},{"id":13,"name":"Sunset Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_f92198e0-95f0-43b1-8e5d-1233009cd2d3.png?v=1777561905","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/PARIS_SANDALYE-SUNSET_CHAIR_1_910ad7c3-b72e-44c6-884a-f923df83fc77.jpg?v=1777561840"]},{"id":14,"name":"Alba Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5b148a5e-8d50-4cf8-8f0a-bfdc69ccb68f.png?v=1777561779","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NEVADA_SANDALYE-ALBA_CHAIR_1_1f9d4440-96e6-46a5-8e5f-59761197681d.webp?v=1777561703"]},{"id":15,"name":"Vinta Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_48382f95-e232-44c2-ba77-eb1267acaad3.png?v=1777561604","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NEST_SANDALYE_-VINTA_CHAIR_1.jpg?v=1777561508"]},{"id":16,"name":"Arcade Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_a3b3bc89-a9e3-489b-8f50-8d349579cfa6.png?v=1777560916","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MOON_SANDALYE-ARCADE_WOOD_CHAIR_1-1.jpg?v=1777561378"]},{"id":17,"name":"Spindle Retro Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_48d32dcb-700b-492e-a7c1-907706a6eaf2.png?v=1777560778","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MONZA_SANDALYE-SPINDLE_RETRO_CHAIR_1.jpg?v=1777560710"]},{"id":18,"name":"Amber Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_e88834a5-f34b-4b64-9d93-33c765b88c15.png?v=1777559757","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASS_SANDALYE-AMBER_WOOD_CHAIR_1.jpg?v=1777559440"]},{"id":19,"name":"Lumina Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4fdcc7b4-b943-465a-b83a-500d463c5f6f.png?v=1777559443","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MARINA_SANDALYE-LUMINA_WOOD_CHAIR_1.jpg?v=1777559376"]},{"id":20,"name":"Core Modern Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7c54a4ea-ddb3-45cf-af63-f24f70c27f73.png?v=1777559279","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/LUCY_-CORE_MODERN_CHAIR_1.jpg?v=1777559162"]},{"id":21,"name":"Metro Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_65530081-e210-40b6-8251-e776da7093e3.png?v=1777559094","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/LOTUS_SANDALYE-METRO_WOOD_CHAIR_1.jpg?v=1777559000"]},{"id":22,"name":"Metropolitan Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_63c1d825-74e9-46b1-9860-e17c9990f609.png?v=1777558946","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DOVE_SANDALYE-METROPOLITAN_CHAIR_1.jpg?v=1777558882"]},{"id":23,"name":"Retro Cane Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_2b7eff72-5bd5-4e2f-80e7-5f8b6d1aaec1.png?v=1777558824","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DANTE_WICKER-RETRO_CANE_CHAIR_1.jpg?v=1777558759"]},{"id":24,"name":"Novo Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_f4b22d94-5d04-44f8-8314-bb3a78d12ad1.png?v=1777558691","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DALE_SANDALYE_-NOVO_CHAIR_1.jpg?v=1777558631"]},{"id":25,"name":"Essence Gold Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_cac7715c-8973-4ffe-95a9-b5b5480d64c7.png?v=1777481507","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/CORVET_SANDALYE-ESSENCE_GOLD_CHAIR_1.jpg?v=1777481441"]},{"id":26,"name":"Cozy Wood Chair","category":"chair","categoryNameTR":"Sandalye","categoryNameEN":"Chair","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_00990bd7-d8b5-4cac-9dcb-7787e98df379.png?v=1777481202","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/COOPER_SANDALYE_1-COZY_WOOD_CHAIR_5fff7362-6383-4c39-895c-72c6af077f3c.jpg?v=1777481113"]},{"id":27,"name":"Axis Oval White","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_d537b216-38cd-4722-b6d7-a98058b557f9.png?v=1777480796","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3054-1.jpg?v=1777480717"]},{"id":28,"name":"Axis Oval Black","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_8ddc8cf6-942b-4e6c-9e49-462084871f13.png?v=1777480305","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3066-1.jpg?v=1777480235"]},{"id":29,"name":"Pure Marble","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_58b21bd4-e6b1-4422-89e4-836fffa3bbf1.png?v=1777479758","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3075-1.jpg?v=1777479682"]},{"id":30,"name":"Marble Flute","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_bf8b33d9-bdbe-468a-a76b-6c4c77ccd7d4.png?v=1777478340","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3092-1.jpg?v=1777477997"]},{"id":31,"name":"Urban Pearl","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ac0b7ec6-aaa8-4b22-94b0-9b8801b0a0d9.png?v=1777404209","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3157-1.jpg?v=1777404119"]},{"id":32,"name":"Urban White","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_929413f6-d75a-4b6b-9f63-be0d71c9599f.png?v=1777404033","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3165-1.jpg?v=1777403967"]},{"id":33,"name":"Flute Beech","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_14772ef0-f18d-4602-83c2-383449b502bc.png?v=1777403052","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3214-1.jpg?v=1777402904"]},{"id":34,"name":"Flute Walnut","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_dacd7204-9376-46c2-824d-10199bf0cbcd.png?v=1777402750","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3186-1.jpg?v=1777402544"]},{"id":35,"name":"Storm White","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5a5fe19e-bf73-4815-9ad2-d7be240f9585.png?v=1777402286","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3200-1.jpg?v=1777402145"]},{"id":36,"name":"Heritage Walnut","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-walnut-ev-ortam-1.png?v=1777400902","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3136-1.jpg?v=1777400841"]},{"id":37,"name":"Heritage Beech","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-beech-ev-ortam-1.png?v=1777400692","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3219-1.jpg?v=1777400611"]},{"id":38,"name":"Heritage White/Black","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_d8379545-5f53-498c-8042-5ee78d97a5fe.png?v=1777400447","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3086-1.jpg?v=1777400344"]},{"id":39,"name":"Nordic Contrast","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_b0691546-61d2-4f73-81f9-3a2fa4e5dfe0.png?v=1777324280","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3178_4.jpg?v=1777324083"]},{"id":40,"name":"Nordic Marble","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_e6c9dabc-3a76-4a79-b08e-05f18f5579b4.png?v=1777323975","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3171-1.jpg?v=1777323852"]},{"id":41,"name":"Cone Oak","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_593aa66d-75c3-4341-9680-ffd5bfea2e32.png?v=1777323727","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3206-1.jpg?v=1777323530"]},{"id":42,"name":"Cone Walnut","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/cone-walnut-ev-ortam.png?v=1777323329","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3195-1.jpg?v=1777322900"]},{"id":43,"name":"Urban Noir","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3146_1.jpg?v=1777320952","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3147_1.jpg?v=1777320952"]},{"id":44,"name":"Urban Walnut","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3112-KUCUK.jpg?v=1777319239","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3114-KUCUK.jpg?v=1777319599"]},{"id":45,"name":"Torino Masa","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/torino3.png?v=1776720287","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TORINO_1_3_1.jpg?v=1776720287"]},{"id":46,"name":"Masami Masa","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI2.jpg?v=1776542238"]},{"id":47,"name":"Arno Masa","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ARNOMASA1.jpg?v=1776093630","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/IMG_8112.jpg?v=1776093630"]},{"id":48,"name":"Riva Yemek Masası","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA7.jpg?v=1776103063","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA1.jpg?v=1776103321"]},{"id":49,"name":"Rio Masa","category":"dining_table","categoryNameTR":"Yemek Masası","categoryNameEN":"Dining Table","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO1.jpg?v=1776098518","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO4.jpg?v=1776098519"]},{"id":50,"name":"Madrid Köşe Koltuk","category":"corner_sofa","categoryNameTR":"Köşe Koltuk","categoryNameEN":"Corner Sofa","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_1.jpg?v=1776093146"]},{"id":51,"name":"Marea Köşe Koltuk","category":"corner_sofa","categoryNameTR":"Köşe Koltuk","categoryNameEN":"Corner Sofa","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/587302596_17851196079600970_4980043478742266066_n_139c51c3-0767-47c6-9f29-efda42a3cfe7.jpg?v=1776090485"]},{"id":52,"name":"Assos Köşe Koltuk","category":"corner_sofa","categoryNameTR":"Köşe Koltuk","categoryNameEN":"Corner Sofa","images":["https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376","https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_9_07a36c7f-b965-432c-b0f6-368be2ebe5d2.jpg?v=1776093376"]}];
+        const translations = {"TR":{"title":"Ürünler - NORDIVA HOME EUROPE","all":"Tümü","coffee_table":"Sehpa","chair":"Sandalye","dining_table":"Yemek Masası","corner_sofa":"Köşe Koltuk","price":"Fiyat İçin İletişime Geçin","viewDetails":"Detayları Gör"},"EN":{"title":"Products - NORDIVA HOME EUROPE","all":"All","coffee_table":"Coffee Table","chair":"Chair","dining_table":"Dining Table","corner_sofa":"Corner Sofa","price":"Contact for Price","viewDetails":"View Details"},"DE":{"title":"Produkte - NORDIVA HOME EUROPE","all":"Alle","coffee_table":"Couchtisch","chair":"Stuhl","dining_table":"Esstisch","corner_sofa":"Ecksofa","price":"Preis auf Anfrage","viewDetails":"Details anzeigen"},"FR":{"title":"Produits - NORDIVA HOME EUROPE","all":"Tous","coffee_table":"Table Basse","chair":"Chaise","dining_table":"Table à Manger","corner_sofa":"Canapé d'angle","price":"Prix sur demande","viewDetails":"Voir détails"},"AR":{"title":"المنتجات - NORDIVA HOME EUROPE","all":"الكل","coffee_table":"طاولة قهوة","chair":"كرسي","dining_table":"طاولة طعام","corner_sofa":"كنبة زاوية","price":"السعر عند الطلب","viewDetails":"عرض التفاصيل"}};
         
-        const products = category 
-            ? allProducts.filter(p => p.category === category)
-            : allProducts;
-
-        const grid = document.getElementById('product-grid');
-        
-        // Shopify image mapping
-        const productImages = {
-            1: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146',
-            2: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485',
-            3: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376',
-            4: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            5: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA7.jpg?v=1776103063',
-            6: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO1.jpg?v=1776098518',
-            7: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VERTA2_90219d3d-2d5e-47b9-a5ba-2a477eda0232.jpg?v=1776097180',
-            8: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image.png?v=1776093943',
-            9: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MILANO2.jpg?v=1776093687',
-            10: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NOIR1.jpg?v=1776101493',
-            11: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ARNOMASA1.jpg?v=1776093630',
-            12: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_d537b216-38cd-4722-b6d7-a98058b557f9.png?v=1777480796',
-            13: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_58b21bd4-e6b1-4422-89e4-836fffa3bbf1.png?v=1777479758',
-            14: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ac0b7ec6-aaa8-4b22-94b0-9b8801b0a0d9.png?v=1777404209',
-            15: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_14772ef0-f18d-4602-83c2-383449b502bc.png?v=1777403052',
-            16: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_5b7d7732-cbd7-49a1-a000-8a184ae8c9c0.png?v=1777581253',
-            17: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_fd46c02b-4e08-4ee4-9b35-bbe9ce5eb041.png?v=1777581115',
-            18: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4823de69-1703-4f89-9e5a-7c2d80b40590.png?v=1777580984',
-            19: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_8432df98-4317-40c9-aa47-c2a6f9211f8d.png?v=1777580827',
-            20: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608',
-            21: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951',
-            22: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4535cf55-69a1-4b90-a473-32ade1d7220a.png?v=1777581829',
-            23: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146',
-            24: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485',
-            25: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376',
-            26: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-walnut-ev-ortam-1.png?v=1777400902',
-            27: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_b0691546-61d2-4f73-81f9-3a2fa4e5dfe0.png?v=1777324280',
-            28: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_593aa66d-75c3-4341-9680-ffd5bfea2e32.png?v=1777323727',
-            29: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/torino3.png?v=1776720287',
-            30: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238',
-            31: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146',
-            32: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485',
-            33: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376',
-            34: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madridkosekoltuk_3.jpg?v=1776093146',
-            35: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/586669473_17851196070600970_2979464147891625364_n_1ff529ed-1eaa-434c-9f87-68402760634e.jpg?v=1776090485',
-            36: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376',
-            37: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3112-KUCUK.jpg?v=1777319239',
-            38: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/DSC3146_1.jpg?v=1777320952',
-            39: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_e6c9dabc-3a76-4a79-b08e-05f18f5579b4.png?v=1777323975',
-            40: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_bf8b33d9-bdbe-468a-a76b-6c4c77ccd7d4.png?v=1777478340',
-            41: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_6b46b753-77e2-4783-bee0-a0e33cfc1fd0.png?v=1777580494',
-            42: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_04dc6cc1-6f20-4f9c-a4c1-215102079754.png?v=1777580362',
-            43: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_0def9e93-6885-41db-96ab-13814e6c3a47.png?v=1777562855',
-            44: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_a6fe2b9e-48e8-4ae9-a075-39078db20ecd.png?v=1777562709',
-            45: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951',
-            46: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4535cf55-69a1-4b90-a473-32ade1d7220a.png?v=1777581829',
-            47: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951',
-            48: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_4535cf55-69a1-4b90-a473-32ade1d7220a.png?v=1777581829',
-            49: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIVA7.jpg?v=1776103063',
-            50: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/RIO1.jpg?v=1776098518',
-            51: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/VERTA2_90219d3d-2d5e-47b9-a5ba-2a477eda0232.jpg?v=1776097180',
-            52: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image.png?v=1776093943',
-            53: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MILANO2.jpg?v=1776093687',
-            54: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            55: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            56: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            57: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            58: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
-            59: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/NORA1.jpg?v=1776104578',
+        const categoryNames = {
+            coffee_table: { TR: 'Sehpa', EN: 'Coffee Table', DE: 'Couchtisch', FR: 'Table Basse', AR: 'طاولة قهوة' },
+            chair: { TR: 'Sandalye', EN: 'Chair', DE: 'Stuhl', FR: 'Chaise', AR: 'كرسي' },
+            dining_table: { TR: 'Yemek Masası', EN: 'Dining Table', DE: 'Esstisch', FR: 'Table à Manger', AR: 'طاولة طعام' },
+            corner_sofa: { TR: 'Köşe Koltuk', EN: 'Corner Sofa', DE: 'Ecksofa', FR: 'Canapé d'angle', AR: 'كنبة زاوية' }
         };
         
-        products.forEach(p => {
-            const imageUrl = productImages[p.id] || 'https://placehold.co/300x250/0f172a/white?text=' + encodeURIComponent(p.name);
-            grid.innerHTML += `
-                <a href="products/product-${p.id}.html" class="product-card" style="text-decoration: none; color: inherit;">
-                    <img src="${imageUrl}" alt="${p.name}" class="product-image" onerror="this.src='https://placehold.co/300x250/0f172a/white?text=${encodeURIComponent(p.name)}'">
-                    <div class="product-info">
-                        <div class="product-category">${p.category.replace('_', ' ')}</div>
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-price">${p.price}</div>
-                        <span class="order-btn" style="display: block; text-align: center;">View Details</span>
-                    </div>
-                </a>
-            `;
-        });
-
-        // Highlight active filter
-        if (category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.filter === category) btn.classList.add('active');
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('product-grid');
+            const lang = localStorage.getItem('language') || 'TR';
+            grid.innerHTML = '';
+            
+            products.forEach(p => {
+                if (filter !== 'all' && p.category !== filter) return;
+                
+                const categoryName = categoryNames[p.category] ? categoryNames[p.category][lang] : p.category;
+                const priceText = translations[lang] ? translations[lang].price : 'Fiyat İçin İletişime Geçin';
+                const viewText = translations[lang] ? translations[lang].viewDetails : 'Detayları Gör';
+                
+                grid.innerHTML += `
+                    <a href="products/product-${p.id}.html" class="product-card">
+                        <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
+                        <div class="product-info">
+                            <div class="product-category">${categoryName}</div>
+                            <div class="product-name">${p.name}</div>
+                            <div class="product-price">${priceText}</div>
+                            <div class="view-btn">${viewText}</div>
+                        </div>
+                    </a>
+                `;
             });
         }
+        
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+        
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+            renderProducts('all');
+            
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (t[key]) el.textContent = t[key];
+                });
+            }
+        }
+        
+        const savedLang = localStorage.getItem('language') || 'TR';
+        document.getElementById('lang-select').value = savedLang;
+        changeLanguage(savedLang);
+        renderProducts();
     </script>
 </body>
 </html>

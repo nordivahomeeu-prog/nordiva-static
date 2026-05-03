@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pearl Coffee Table - NORDIVA HOME EUROPE</title>
+    <title>Masami Masa - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
-        
         header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
-        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
         nav a:hover { color: #1e293b; }
-        
+        .lang-selector select { padding: 0.25rem 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.25rem; background: white; cursor: pointer; }
         .product-detail { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
         .back-link { display: inline-block; margin-bottom: 2rem; color: #64748b; text-decoration: none; }
-        .back-link:hover { color: #1e293b; }
-        
         .product-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: white; border-radius: 1rem; padding: 2rem; border: 1px solid #e2e8f0; }
-        .product-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; }
-        
+        .gallery { width: 100%; }
+        .main-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; margin-bottom: 1rem; max-height: 400px; object-fit: cover; }
+        .thumbnails { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .thumbnails img { width: 70px; height: 70px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; }
+        .thumbnails img.active { border-color: #0f172a; }
         .product-info h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #1e293b; }
         .product-category { color: #64748b; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem; }
         .product-price { font-size: 1.5rem; color: #0f172a; font-weight: 600; margin-bottom: 1.5rem; }
         .product-description { color: #475569; margin-bottom: 2rem; line-height: 1.8; }
-        
         .order-btn { display: block; width: 100%; padding: 1rem; background: #0f172a; color: white; text-align: center; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
         .order-btn:hover { background: #1e293b; }
-        
         .features { margin-top: 2rem; }
         .features h3 { font-size: 1.1rem; margin-bottom: 1rem; color: #1e293b; }
         .features ul { margin-left: 1.5rem; color: #475569; }
-        .features li { margin-bottom: 0.5rem; }
-        
         footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
-        
         @media (max-width: 768px) { .product-container { grid-template-columns: 1fr; } }
+        [dir="rtl"] { direction: rtl; }
+        [dir="rtl"] .features ul { margin-left: 0; margin-right: 1.5rem; }
     </style>
 </head>
 <body>
@@ -44,65 +42,48 @@
         <div class="header-content">
             <a href="/" class="logo">NORDIVA</a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/products.html">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/delivery.html">Delivery</a>
+                <a href="/" data-lang="home">Ana Sayfa</a>
+                <a href="/products.html" data-lang="products">Ürünler</a>
+                <a href="/about.html" data-lang="about">Hakkımızda</a>
+                <a href="/contact.html" data-lang="contact">İletişim</a>
+                <a href="/delivery.html" data-lang="delivery">Teslimat</a>
+                <div class="lang-selector">
+                    <select id="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="TR">🇹🇷 TR</option>
+                        <option value="EN">🇬🇧 EN</option>
+                        <option value="DE">🇩🇪 DE</option>
+                        <option value="FR">🇫🇷 FR</option>
+                        <option value="AR">🇸🇦 AR</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
 
     <section class="product-detail">
-        <a href="/products.html" class="back-link">← Back to Products</a>
-        
+        <a href="/products.html" class="back-link" data-lang="backToProducts">← Ürünlere Dön</a>
         <div class="product-container">
-            
-    
-    <div class="gallery">
-      <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951" id="main-image-46" class="main-image" alt="">
-      <div class="thumbnails">
-        <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951" class="thumb active" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_ce5a3075-dcf2-454e-9591-e283e5a62e9a.png?v=1777581951', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_1.jpg?v=1777581894" class="thumb" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_1.jpg?v=1777581894', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_2.jpg?v=1777581892" class="thumb" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_2.jpg?v=1777581892', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_3.jpg?v=1777581894" class="thumb" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TEXAS-ZIGON_3.jpg?v=1777581894', this)" alt="">
-      </div>
-    </div>
-    <style>
-      .gallery { width: 100%; }
-      .main-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; margin-bottom: 1rem; max-height: 400px; object-fit: cover; }
-      .thumbnails { display: flex; gap: 0.5rem; flex-wrap: wrap; max-height: 200px; overflow-y: auto; }
-      .thumbnails img { width: 70px; height: 70px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
-      .thumbnails img:hover { border-color: #64748b; }
-      .thumbnails img.active { border-color: #0f172a; }
-    </style>
-    <script>
-      function changeImage(productId, src, thumb) {
-        document.getElementById('main-image-' + productId).src = src;
-        document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-      }
-    </script>
-  
-  
-            
+            <div class="gallery">
+                <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" id="main-image-46" class="main-image" alt="">
+                <div class="thumbnails"><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" class="thumb active" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI2.jpg?v=1776542238" class="thumb" onclick="changeImage(46, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI2.jpg?v=1776542238', this)" alt=""></div>
+            </div>
             <div class="product-info">
-                <div class="product-category">Coffee Table</div>
-                <h1>Pearl Coffee Table</h1>
-                <div class="product-price">Contact for Price</div>
-                
+                <div class="product-category">Yemek Masası</div>
+                <h1>Masami Masa</h1>
+                <div class="product-price" data-lang="price">Fiyat İçin İletişime Geçin</div>
                 <div class="product-description">
-                    <p>Premium quality coffee table crafted with attention to detail. This elegant piece combines modern design with exceptional comfort, making it a perfect addition to your home.</p>
-                    <p>Contact us on Instagram for detailed pricing, customization options, and delivery information.</p>
+                    <p data-lang="description">Premium kalite mobilya, detaylara özen gösterilerek üretilmiştir.</p>
+                    <p data-lang="contactText">Detaylı fiyatlandırma için Instagram'dan bize ulaşın.</p>
                 </div>
-                
-                <a href="https://instagram.com/nordivahomeeurope" class="order-btn" target="_blank">Order via Instagram</a>
-                
+                <a href="https://instagram.com/nordivahomeeurope" class="order-btn" target="_blank" data-lang="orderInstagram">Instagram'dan Sipariş Ver</a>
                 <div class="features">
-                    <h3>Product Features</h3>
+                    <h3 data-lang="features">Ürün Özellikleri</h3>
                     <ul>
-                        <li>Premium quality materials</li>
-                        <li>Modern European design</li>
-                        <li>2-year warranty included</li>
-                        <li>Europe-wide delivery available</li>
-                        <li>Cash on delivery option</li>
+                        <li data-lang="feature1">Premium kalite malzemeler</li>
+                        <li data-lang="feature2">Modern Avrupa tasarımı</li>
+                        <li data-lang="feature3">2 yıl garanti dahil</li>
+                        <li data-lang="feature4">Avrupa çapında teslimat</li>
+                        <li data-lang="feature5">Kapıda ödeme seçeneği</li>
                     </ul>
                 </div>
             </div>
@@ -112,5 +93,28 @@
     <footer>
         <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
     </footer>
+
+    <script>
+        const translations = {"TR":{"home":"Ana Sayfa","products":"Ürünler","about":"Hakkımızda","contact":"İletişim","delivery":"Teslimat","orderInstagram":"Instagram'dan Sipariş Ver","backToProducts":"Ürünlere Dön","price":"Fiyat İçin İletişime Geçin","description":"Premium kalite mobilya, detaylara özen gösterilerek üretilmiştir.","contactText":"Detaylı fiyatlandırma için Instagram'dan bize ulaşın.","features":"Ürün Özellikleri","feature1":"Premium kalite malzemeler","feature2":"Modern Avrupa tasarımı","feature3":"2 yıl garanti dahil","feature4":"Avrupa çapında teslimat","feature5":"Kapıda ödeme seçeneği"},"EN":{"home":"Home","products":"Products","about":"About","contact":"Contact","delivery":"Delivery","orderInstagram":"Order via Instagram","backToProducts":"Back to Products","price":"Contact for Price","description":"Premium quality furniture crafted with attention to detail.","contactText":"Contact us on Instagram for detailed pricing.","features":"Product Features","feature1":"Premium quality materials","feature2":"Modern European design","feature3":"2-year warranty included","feature4":"Europe-wide delivery","feature5":"Cash on delivery option"},"DE":{"home":"Startseite","products":"Produkte","about":"Über uns","contact":"Kontakt","delivery":"Lieferung","orderInstagram":"Über Instagram bestellen","backToProducts":"Zurück zu Produkten","price":"Preis auf Anfrage","description":"Hochwertige Möbel mit Liebe zum Detail.","contactText":"Kontaktieren Sie uns auf Instagram.","features":"Produkteigenschaften","feature1":"Hochwertige Materialien","feature2":"Modernes europäisches Design","feature3":"2 Jahre Garantie inklusive","feature4":"Lieferung in ganz Europa","feature5":"Zahlung bei Lieferung"},"FR":{"home":"Accueil","products":"Produits","about":"À propos","contact":"Contact","delivery":"Livraison","orderInstagram":"Commander via Instagram","backToProducts":"Retour aux produits","price":"Prix sur demande","description":"Meubles de qualité premium fabriqués avec attention.","contactText":"Contactez-nous sur Instagram.","features":"Caractéristiques","feature1":"Matériaux de qualité premium","feature2":"Design européen moderne","feature3":"Garantie 2 ans incluse","feature4":"Livraison en Europe","feature5":"Paiement à la livraison"},"AR":{"home":"الرئيسية","products":"المنتجات","about":"من نحن","contact":"اتصل بنا","delivery":"التوصيل","orderInstagram":"اطلب عبر انستغرام","backToProducts":"العودة للمنتجات","price":"السعر عند الطلب","description":"أثاث عالي الجودة مصنوع بعناية.","contactText":"تواصل معنا على انستغرام.","features":"مميزات المنتج","feature1":"مواد عالية الجودة","feature2":"تصميم أوروبي عصري","feature3":"ضمان سنتين شامل","feature4":"توصيل في جميع أنحاء أوروبا","feature5":"الدفع عند الاستلام"}};
+        function changeImage(productId, src, thumb) {
+            document.getElementById('main-image-' + productId).src = src;
+            document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (t[key]) el.textContent = t[key];
+                });
+            }
+        }
+        const savedLang = localStorage.getItem('language') || 'TR';
+        document.getElementById('lang-select').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
 </body>
 </html>
