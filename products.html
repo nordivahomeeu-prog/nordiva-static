@@ -143,15 +143,15 @@
         const grid = document.getElementById('product-grid');
         products.forEach(p => {
             grid.innerHTML += `
-                <div class="product-card">
-                    <img src="${p.image}" alt="${p.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x250?text=${encodeURIComponent(p.name)}'">
+                <a href="products/product-${p.id}.html" class="product-card" style="text-decoration: none; color: inherit;">
+                    <img src="https://placehold.co/300x250/0f172a/white?text=${encodeURIComponent(p.name.replace(/\s+/g, '+'))}" alt="${p.name}" class="product-image">
                     <div class="product-info">
                         <div class="product-category">${p.category.replace('_', ' ')}</div>
                         <div class="product-name">${p.name}</div>
                         <div class="product-price">${p.price}</div>
-                        <a href="https://instagram.com/nordivahomeeurope" class="order-btn" target="_blank">Order via Instagram</a>
+                        <span class="order-btn" style="display: block; text-align: center;">View Details</span>
                     </div>
-                </div>
+                </a>
             `;
         });
 
