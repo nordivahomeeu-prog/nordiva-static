@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - NORDIVA HOME EUROPE</title>
+    <title>Hakkımızda - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
-        
         header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
-        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
         nav a:hover { color: #1e293b; }
-        
+        .lang-selector select { padding: 0.25rem 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.25rem; background: white; cursor: pointer; }
         .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
         .content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #1e293b; }
         .content p { margin-bottom: 1rem; color: #475569; font-size: 1.1rem; }
-        .content h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #1e293b; }
-        .content ul { margin-left: 1.5rem; color: #475569; }
-        .content li { margin-bottom: 0.5rem; }
-        
         footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+        [dir="rtl"] { direction: rtl; }
     </style>
 </head>
 <body>
@@ -29,37 +26,58 @@
         <div class="header-content">
             <a href="/" class="logo">NORDIVA</a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/products.html">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/delivery.html">Delivery</a>
+                <a href="/" data-lang="home">Ana Sayfa</a>
+                <a href="/products.html" data-lang="products">Ürünler</a>
+                <a href="/about.html" data-lang="about">Hakkımızda</a>
+                <a href="/contact.html" data-lang="contact">İletişim</a>
+                <a href="/delivery.html" data-lang="delivery">Teslimat</a>
+                <div class="lang-selector">
+                    <select id="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="TR">🇹🇷 TR</option>
+                        <option value="EN">🇬🇧 EN</option>
+                        <option value="DE">🇩🇪 DE</option>
+                        <option value="FR">🇫🇷 FR</option>
+                        <option value="AR">🇸🇦 AR</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
 
     <div class="content">
-        <h1>About Us</h1>
-        
-        <p>NORDIVA HOME EUROPE is a premium furniture brand dedicated to bringing high-quality, stylish furniture to homes across Europe. Based in Turkey, we combine traditional craftsmanship with modern design to create pieces that elevate your living spaces.</p>
-
-        <p>Our collection includes sofas, dining tables, chairs, beds, and complete furniture sets — all carefully selected for quality, durability, and aesthetic appeal.</p>
-
-        <h2>Our Mission</h2>
-        <p>To make premium furniture accessible to everyone in Europe, with personalized service and reliable delivery. We believe everyone deserves a beautiful home.</p>
-
-        <h2>Why Choose Us?</h2>
-        <ul>
-            <li>Premium quality products</li>
-            <li>Cash on delivery option</li>
-            <li>Europe-wide shipping</li>
-            <li>Personalized customer service</li>
-            <li>Instagram DM support</li>
-        </ul>
+        <h1 data-lang="aboutTitle">Hakkımızda</h1>
+        <p data-lang="aboutText1">NORDIVA HOME EUROPE olarak, modern yaşam alanlarına uygun, premium kalite mobilyalar üretiyoruz. Her parçamızda kalite ve estetiği ön planda tutuyoruz.</p>
+        <p data-lang="aboutText2">Avrupa standartlarında üretim yaparak, müşterilerimize en iyi ürünleri sunmayı hedefliyoruz. Koleksiyonumuzda köşe koltuklar, yemek masaları, sandalyeler ve sehpalar bulunmaktadır.</p>
     </div>
 
     <footer>
         <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
     </footer>
+
+    <script>
+        const translations = {
+            TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', aboutTitle: 'Hakkımızda', aboutText1: 'NORDIVA HOME EUROPE olarak, modern yaşam alanlarına uygun, premium kalite mobilyalar üretiyoruz.', aboutText2: 'Avrupa standartlarında üretim yaparak, müşterilerimize en iyi ürünleri sunmayı hedefliyoruz.' },
+            EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', aboutTitle: 'About Us', aboutText1: 'At NORDIVA HOME EUROPE, we produce premium quality furniture suitable for modern living spaces.', aboutText2: 'We aim to offer our customers the best products by manufacturing to European standards.' },
+            DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', aboutTitle: 'Über Uns', aboutText1: 'Bei NORDIVA HOME EUROPE produzieren wir Premium-Möbel für moderne Wohnräume.', aboutText2: 'Wir zielen darauf ab, unseren Kunden die besten Produkte nach europäischen Standards anzubieten.' },
+            FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', aboutTitle: 'À Propos', aboutText1: 'Chez NORDIVA HOME EUROPE, nous produisons des meubles de qualité premium pour les espaces de vie modernes.', aboutText2: 'Nous visons à offrir à nos clients les meilleurs produits fabriqués selon les normes européennes.' },
+            AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', aboutTitle: 'من نحن', aboutText1: 'في NORDIVA HOME EUROPE، ننتج أثاثًا عالي الجودة مناسبًا لمساحات المعيشة الحديثة.', aboutText2: 'نهدف إلى تقديم أفضل المنتجات لعملائنا من خلال التصنيع وفقًا للمعايير الأوروبية.' }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (t[key]) el.textContent = t[key];
+                });
+            }
+        }
+
+        const savedLang = localStorage.getItem('language') || 'TR';
+        document.getElementById('lang-select').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
 </body>
 </html>

@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery & Shipping - NORDIVA HOME EUROPE</title>
+    <title>Teslimat - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
-        
         header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
-        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
         nav a:hover { color: #1e293b; }
-        
+        .lang-selector select { padding: 0.25rem 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.25rem; background: white; cursor: pointer; }
         .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
         .content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #1e293b; }
         .content p { margin-bottom: 1rem; color: #475569; font-size: 1.1rem; }
-        .content h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #1e293b; }
-        .content ul { margin-left: 1.5rem; color: #475569; }
-        .content li { margin-bottom: 0.5rem; }
-        
         .delivery-card { background: white; border-radius: 0.75rem; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
         .delivery-card h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #1e293b; }
         .delivery-card p { margin-bottom: 0.5rem; font-size: 1rem; }
-        
         .highlight { background: #0f172a; color: white; padding: 1.5rem; border-radius: 0.75rem; margin: 2rem 0; }
         .highlight h3 { color: white; margin-bottom: 0.5rem; }
         .highlight p { color: #94a3b8; margin: 0; }
-        
         footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+        [dir="rtl"] { direction: rtl; }
     </style>
 </head>
 <body>
@@ -37,70 +32,70 @@
         <div class="header-content">
             <a href="/" class="logo">NORDIVA</a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/products.html">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/delivery.html">Delivery</a>
+                <a href="/" data-lang="home">Ana Sayfa</a>
+                <a href="/products.html" data-lang="products">Ürünler</a>
+                <a href="/about.html" data-lang="about">Hakkımızda</a>
+                <a href="/contact.html" data-lang="contact">İletişim</a>
+                <a href="/delivery.html" data-lang="delivery">Teslimat</a>
+                <div class="lang-selector">
+                    <select id="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="TR">🇹🇷 TR</option>
+                        <option value="EN">🇬🇧 EN</option>
+                        <option value="DE">🇩🇪 DE</option>
+                        <option value="FR">🇫🇷 FR</option>
+                        <option value="AR">🇸🇦 AR</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
 
     <div class="content">
-        <h1>Delivery & Shipping</h1>
+        <h1 data-lang="deliveryTitle">Teslimat</h1>
         
-        <p>We deliver our premium furniture across Europe. Here's everything you need to know about our shipping process.</p>
+        <p data-lang="deliveryText">Premium mobilyalarımızı Avrupa'nın her yerine teslim ediyoruz.</p>
 
         <div class="highlight">
-            <h3>🚚 Free Delivery</h3>
-            <p>Free shipping on all orders over €500 within Europe</p>
+            <h3>🚚 <span data-lang="freeDelivery">Ücretsiz Teslimat</span></h3>
+            <p data-lang="freeDeliveryText">Avrupa içinde 500€ üzeri tüm siparişlerde ücretsiz kargo</p>
         </div>
 
         <div class="delivery-card">
-            <h3>📦 Shipping Times</h3>
-            <p><strong>Production Time:</strong> 3 weeks</p>
-            <p><strong>Shipment Time:</strong> 7-10 days</p>
-            <p><strong>Express Delivery:</strong> Available (additional fee)</p>
-        </div>
-
-        <div class="delivery-card">
-            <h3>🌍 Delivery Areas</h3>
-            <p>We ship to all EU countries including:</p>
-            <ul>
-                <li>Germany, France, Italy, Spain, Netherlands</li>
-                <li>Belgium, Austria, Poland, Czech Republic</li>
-                <li>Sweden, Denmark, Finland, Norway</li>
-                <li>And all other European countries</li>
-            </ul>
-        </div>
-
-        <div class="delivery-card">
-            <h3>💳 Payment Options</h3>
-            <p><strong>Cash on Delivery:</strong> Pay when you receive your order</p>
-            <p><strong>Bank Transfer:</strong> Secure payment via SEPA transfer</p>
-            <p><strong>Credit Card:</strong> Visa, Mastercard accepted</p>
-        </div>
-
-        <h2>Delivery Process</h2>
-        <ol style="margin-left: 1.5rem; color: #475569;">
-            <li style="margin-bottom: 0.5rem;">Place your order via Instagram DM</li>
-            <li style="margin-bottom: 0.5rem;">We confirm availability and delivery date</li>
-            <li style="margin-bottom: 0.5rem;">Your furniture is carefully packaged</li>
-            <li style="margin-bottom: 0.5rem;">Shipped with tracking information</li>
-            <li style="margin-bottom: 0.5rem;">Delivered to your door with assembly instructions</li>
-        </ol>
-
-        <h2>Returns & Warranty</h2>
-        <p>All our products come with a 2-year warranty. If you're not satisfied with your purchase, you can return it within 14 days of delivery. Items must be in original condition and packaging.</p>
-
-        <div class="highlight">
-            <h3>📞 Questions?</h3>
-            <p>Contact us on Instagram @nordivahomeeurope for delivery inquiries</p>
+            <h3>📦 <span data-lang="shippingTimes">Teslimat Süreleri</span></h3>
+            <p><strong data-lang="production">Üretim Süresi:</strong> 3 hafta</p>
+            <p><strong data-lang="shipment">Kargo Süresi:</strong> 7-10 gün</p>
+            <p><strong data-lang="express">Express Teslimat:</strong> Mevcut (ek ücret)</p>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
     </footer>
+
+    <script>
+        const translations = {
+            TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', deliveryTitle: 'Teslimat', deliveryText: 'Premium mobilyalarımızı Avrupa\'nın her yerine teslim ediyoruz.', freeDelivery: 'Ücretsiz Teslimat', freeDeliveryText: 'Avrupa içinde 500€ üzeri tüm siparişlerde ücretsiz kargo', shippingTimes: 'Teslimat Süreleri', production: 'Üretim Süresi:', shipment: 'Kargo Süresi:', express: 'Express Teslimat:' },
+            EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', deliveryTitle: 'Delivery', deliveryText: 'We deliver our premium furniture across Europe.', freeDelivery: 'Free Delivery', freeDeliveryText: 'Free shipping on all orders over €500 within Europe', shippingTimes: 'Shipping Times', production: 'Production Time:', shipment: 'Shipment Time:', express: 'Express Delivery:' },
+            DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', deliveryTitle: 'Lieferung', deliveryText: 'Wir liefern unsere Premium-Möbel in ganz Europa.', freeDelivery: 'Kostenlose Lieferung', freeDeliveryText: 'Kostenloser Versand für alle Bestellungen über 500€ in Europa', shippingTimes: 'Lieferzeiten', production: 'Produktionszeit:', shipment: 'Versandzeit:', express: 'Express-Lieferung:' },
+            FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', deliveryTitle: 'Livraison', deliveryText: 'Nous livrons nos meubles premium dans toute l\'Europe.', freeDelivery: 'Livraison Gratuite', freeDeliveryText: 'Livraison gratuite pour toutes les commandes de plus de 500€ en Europe', shippingTimes: 'Délais de Livraison', production: 'Temps de Production:', shipment: 'Temps d\'Expédition:', express: 'Livraison Express:' },
+            AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', deliveryTitle: 'التوصيل', deliveryText: 'نوصل أثاثنا الفاخر إلى جميع أنحاء أوروبا.', freeDelivery: 'توصيل مجاني', freeDeliveryText: 'شحن مجاني لجميع الطلبات فوق 500€ في أوروبا', shippingTimes: 'أوقات التوصيل', production: 'وقت الإنتاج:', shipment: 'وقت الشحن:', express: 'توصيل سريع:' }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (t[key]) el.textContent = t[key];
+                });
+            }
+        }
+
+        const savedLang = localStorage.getItem('language') || 'TR';
+        document.getElementById('lang-select').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
 </body>
 </html>

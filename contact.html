@@ -1,34 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - NORDIVA HOME EUROPE</title>
+    <title>İletişim - NORDIVA HOME EUROPE</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; line-height: 1.6; }
-        
         header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
-        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; }
         nav a:hover { color: #1e293b; }
-        
+        .lang-selector select { padding: 0.25rem 0.5rem; border: 1px solid #e2e8f0; border-radius: 0.25rem; background: white; cursor: pointer; }
         .content { max-width: 800px; margin: 0 auto; padding: 4rem 2rem; }
         .content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #1e293b; }
         .content p { margin-bottom: 1rem; color: #475569; font-size: 1.1rem; }
-        
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
-        .contact-section h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #1e293b; }
-        .contact-section p { margin-bottom: 0.5rem; }
-        .contact-section a { color: #2563eb; text-decoration: none; }
-        .contact-section a:hover { text-decoration: underline; }
-        
-        .instagram-btn { display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
-        
+        .contact-card { background: white; border-radius: 0.75rem; padding: 2rem; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
+        .contact-card h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #1e293b; }
+        .instagram-btn { display: inline-block; background: #0f172a; color: white; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; margin-top: 1rem; }
         footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
-        
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+        [dir="rtl"] { direction: rtl; }
     </style>
 </head>
 <body>
@@ -36,39 +29,63 @@
         <div class="header-content">
             <a href="/" class="logo">NORDIVA</a>
             <nav>
-                <a href="/">Home</a>
-                <a href="/products.html">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-                <a href="/delivery.html">Delivery</a>
+                <a href="/" data-lang="home">Ana Sayfa</a>
+                <a href="/products.html" data-lang="products">Ürünler</a>
+                <a href="/about.html" data-lang="about">Hakkımızda</a>
+                <a href="/contact.html" data-lang="contact">İletişim</a>
+                <a href="/delivery.html" data-lang="delivery">Teslimat</a>
+                <div class="lang-selector">
+                    <select id="lang-select" onchange="changeLanguage(this.value)">
+                        <option value="TR">🇹🇷 TR</option>
+                        <option value="EN">🇬🇧 EN</option>
+                        <option value="DE">🇩🇪 DE</option>
+                        <option value="FR">🇫🇷 FR</option>
+                        <option value="AR">🇸🇦 AR</option>
+                    </select>
+                </div>
             </nav>
         </div>
     </header>
 
     <div class="content">
-        <h1>Contact Us</h1>
-        
-        <div class="contact-grid">
-            <div class="contact-section">
-                <h2>Get in Touch</h2>
-                <p><strong>Instagram:</strong></p>
-                <p><a href="https://instagram.com/nordivahomeeurope" target="_blank">@nordivahomeeurope</a></p>
-                
-                <p><strong>Business Hours:</strong></p>
-                <p>Monday - Saturday: 9:00 - 18:00</p>
-                <p>Sunday: Closed</p>
-            </div>
-            
-            <div class="contact-section">
-                <h2>Quick Order</h2>
-                <p>The fastest way to order is through our Instagram DM. We typically respond within a few hours.</p>
-                <a href="https://instagram.com/nordivahomeeurope" class="instagram-btn" target="_blank">Message on Instagram</a>
-            </div>
+        <h1 data-lang="contactTitle">İletişim</h1>
+        <p data-lang="contactText">Sipariş ve bilgi için Instagram üzerinden bize ulaşabilirsiniz.</p>
+
+        <div class="contact-card">
+            <h3 data-lang="instagram">Instagram</h3>
+            <p>@nordivahomeeurope</p>
+            <a href="https://instagram.com/nordivahomeeurope" class="instagram-btn" target="_blank" data-lang="dmUs">DM Gönder</a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
     </footer>
+
+    <script>
+        const translations = {
+            TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', contactTitle: 'İletişim', contactText: 'Sipariş ve bilgi için Instagram üzerinden bize ulaşabilirsiniz.', instagram: 'Instagram', dmUs: 'DM Gönder' },
+            EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', contactTitle: 'Contact', contactText: 'You can reach us via Instagram for orders and information.', instagram: 'Instagram', dmUs: 'Send DM' },
+            DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', contactTitle: 'Kontakt', contactText: 'Sie können uns über Instagram für Bestellungen und Informationen erreichen.', instagram: 'Instagram', dmUs: 'DM Senden' },
+            FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', contactTitle: 'Contact', contactText: 'Vous pouvez nous contacter via Instagram pour les commandes et informations.', instagram: 'Instagram', dmUs: 'Envoyer DM' },
+            AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', contactTitle: 'اتصل بنا', contactText: 'يمكنك التواصل معنا عبر انستغرام للطلبات والمعلومات.', instagram: 'انستغرام', dmUs: 'إرسال رسالة' }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.dir = lang === 'AR' ? 'rtl' : 'ltr';
+            const t = translations[lang];
+            if (t) {
+                document.querySelectorAll('[data-lang]').forEach(el => {
+                    const key = el.getAttribute('data-lang');
+                    if (t[key]) el.textContent = t[key];
+                });
+            }
+        }
+
+        const savedLang = localStorage.getItem('language') || 'TR';
+        document.getElementById('lang-select').value = savedLang;
+        changeLanguage(savedLang);
+    </script>
 </body>
 </html>
