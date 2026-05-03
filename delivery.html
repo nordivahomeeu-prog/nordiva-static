@@ -61,9 +61,9 @@
 
         <div class="delivery-card">
             <h3>📦 <span data-lang="shippingTimes">Teslimat Süreleri</span></h3>
-            <p><strong data-lang="production">Üretim Süresi:</strong> 3 hafta</p>
-            <p><strong data-lang="shipment">Kargo Süresi:</strong> 7-10 gün</p>
-            <p><strong data-lang="express">Express Teslimat:</strong> Mevcut (ek ücret)</p>
+            <p><strong data-lang="production">Üretim Süresi:</strong> <span data-lang="productionTime">3 hafta</span></p>
+            <p><strong data-lang="shipment">Kargo Süresi:</strong> <span data-lang="shipmentTime">7-10 gün</span></p>
+            <p><strong data-lang="express">Express Teslimat:</strong> <span data-lang="expressAvailable">Mevcut (ek ücret)</span></p>
         </div>
     </div>
 
@@ -73,11 +73,11 @@
 
     <script>
         const translations = {
-            TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', deliveryTitle: 'Teslimat', deliveryText: 'Premium mobilyalarımızı Avrupa\'nın her yerine teslim ediyoruz.', freeDelivery: 'Ücretsiz Teslimat', shippingTimes: 'Teslimat Süreleri', production: 'Üretim Süresi:', shipment: 'Kargo Süresi:', express: 'Express Teslimat:' },
-            EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', deliveryTitle: 'Delivery', deliveryText: 'We deliver our premium furniture across Europe.', freeDelivery: 'Free Delivery', shippingTimes: 'Shipping Times', production: 'Production Time:', shipment: 'Shipment Time:', express: 'Express Delivery:' },
-            DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', deliveryTitle: 'Lieferung', deliveryText: 'Wir liefern unsere Premium-Möbel in ganz Europa.', freeDelivery: 'Kostenlose Lieferung', shippingTimes: 'Lieferzeiten', production: 'Produktionszeit:', shipment: 'Versandzeit:', express: 'Express-Lieferung:' },
-            FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', deliveryTitle: 'Livraison', deliveryText: 'Nous livrons nos meubles premium dans toute l\'Europe.', freeDelivery: 'Livraison Gratuite', shippingTimes: 'Délais de Livraison', production: 'Temps de Production:', shipment: 'Temps d\'Expédition:', express: 'Livraison Express:' },
-            AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', deliveryTitle: 'التوصيل', deliveryText: 'نوصل أثاثنا الفاخر إلى جميع أنحاء أوروبا.', freeDelivery: 'توصيل مجاني', shippingTimes: 'أوقات التوصيل', production: 'وقت الإنتاج:', shipment: 'وقت الشحن:', express: 'توصيل سريع:' }
+            TR: { home: 'Ana Sayfa', products: 'Ürünler', about: 'Hakkımızda', contact: 'İletişim', delivery: 'Teslimat', deliveryTitle: 'Teslimat', deliveryText: 'Premium mobilyalarımızı Avrupa\'nın her yerine teslim ediyoruz.', freeDelivery: 'Ücretsiz Teslimat', shippingTimes: 'Teslimat Süreleri', production: 'Üretim Süresi:', shipment: 'Kargo Süresi:', express: 'Express Teslimat:', productionTime: '3 hafta', shipmentTime: '7-10 gün', expressAvailable: 'Mevcut (ek ücret)' },
+            EN: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact', delivery: 'Delivery', deliveryTitle: 'Delivery', deliveryText: 'We deliver our premium furniture across Europe.', freeDelivery: 'Free Delivery', shippingTimes: 'Shipping Times', production: 'Production Time:', shipment: 'Shipment Time:', express: 'Express Delivery:', productionTime: '3 weeks', shipmentTime: '7-10 days', expressAvailable: 'Available (extra fee)' },
+            DE: { home: 'Startseite', products: 'Produkte', about: 'Über uns', contact: 'Kontakt', delivery: 'Lieferung', deliveryTitle: 'Lieferung', deliveryText: 'Wir liefern unsere Premium-Möbel in ganz Europa.', freeDelivery: 'Kostenlose Lieferung', shippingTimes: 'Lieferzeiten', production: 'Produktionszeit:', shipment: 'Versandzeit:', express: 'Express-Lieferung:', productionTime: '3 Wochen', shipmentTime: '7-10 Tage', expressAvailable: 'Verfügbar (Aufpreis)' },
+            FR: { home: 'Accueil', products: 'Produits', about: 'À propos', contact: 'Contact', delivery: 'Livraison', deliveryTitle: 'Livraison', deliveryText: 'Nous livrons nos meubles premium dans toute l\'Europe.', freeDelivery: 'Livraison Gratuite', shippingTimes: 'Délais de Livraison', production: 'Temps de Production:', shipment: 'Temps d\'Expédition:', express: 'Livraison Express:', productionTime: '3 semaines', shipmentTime: '7-10 jours', expressAvailable: 'Disponible (supplément)' },
+            AR: { home: 'الرئيسية', products: 'المنتجات', about: 'من نحن', contact: 'اتصل بنا', delivery: 'التوصيل', deliveryTitle: 'التوصيل', deliveryText: 'نوصل أثاثنا الفاخر إلى جميع أنحاء أوروبا.', freeDelivery: 'توصيل مجاني', shippingTimes: 'أوقات التوصيل', production: 'وقت الإنتاج:', shipment: 'وقت الشحن:', express: 'توصيل سريع:', productionTime: '3 أسابيع', shipmentTime: '7-10 أيام', expressAvailable: 'متاح (رسوم إضافية)' }
         };
 
         function changeLanguage(lang) {
