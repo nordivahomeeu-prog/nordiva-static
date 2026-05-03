@@ -57,9 +57,29 @@
         <a href="/products.html" class="back-link">← Back to Products</a>
         
         <div class="product-container">
-            <div class="product-image-container">
-                <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608" alt="Orbit Chair" class="product-image">
-            </div>
+            
+    <div class="gallery">
+      <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608" id="main-image-20" class="main-image" alt="">
+      <div class="thumbnails">
+        <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608" class="thumb active" onclick="changeImage(20, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_7bf22c01-88c5-4efe-b269-ad638b84def5.png?v=1777580608', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_df503edd-5d71-4d86-aa69-69411c9279cc.png?v=1777580608" class="thumb" onclick="changeImage(20, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/image_df503edd-5d71-4d86-aa69-69411c9279cc.png?v=1777580608', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_1.jpg?v=1777580511" class="thumb" onclick="changeImage(20, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_1.jpg?v=1777580511', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_2.jpg?v=1777580511" class="thumb" onclick="changeImage(20, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/TOKYO_SANDALYE-ORBIT_CHAIR_2.jpg?v=1777580511', this)" alt="">
+      </div>
+    </div>
+    <style>
+      .gallery { width: 100%; }
+      .main-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; margin-bottom: 1rem; }
+      .thumbnails { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .thumbnails img { width: 80px; height: 80px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+      .thumbnails img:hover { border-color: #64748b; }
+      .thumbnails img.active { border-color: #0f172a; }
+    </style>
+    <script>
+      function changeImage(productId, src, thumb) {
+        document.getElementById('main-image-' + productId).src = src;
+        document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      }
+    </script>
+  
             
             <div class="product-info">
                 <div class="product-category">Chair</div>

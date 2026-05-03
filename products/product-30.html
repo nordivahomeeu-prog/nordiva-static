@@ -57,9 +57,29 @@
         <a href="/products.html" class="back-link">← Back to Products</a>
         
         <div class="product-container">
-            <div class="product-image-container">
-                <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" alt="Masami Table" class="product-image">
-            </div>
+            
+    <div class="gallery">
+      <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" id="main-image-30" class="main-image" alt="">
+      <div class="thumbnails">
+        <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" class="thumb active" onclick="changeImage(30, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI2.jpg?v=1776542238" class="thumb" onclick="changeImage(30, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI2.jpg?v=1776542238', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI3.jpg?v=1776542238" class="thumb" onclick="changeImage(30, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI3.jpg?v=1776542238', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238" class="thumb" onclick="changeImage(30, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/MASAMI1_1.jpg?v=1776542238', this)" alt="">
+      </div>
+    </div>
+    <style>
+      .gallery { width: 100%; }
+      .main-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; margin-bottom: 1rem; }
+      .thumbnails { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .thumbnails img { width: 80px; height: 80px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+      .thumbnails img:hover { border-color: #64748b; }
+      .thumbnails img.active { border-color: #0f172a; }
+    </style>
+    <script>
+      function changeImage(productId, src, thumb) {
+        document.getElementById('main-image-' + productId).src = src;
+        document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      }
+    </script>
+  
             
             <div class="product-info">
                 <div class="product-category">Dining Table</div>

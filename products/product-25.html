@@ -57,9 +57,29 @@
         <a href="/products.html" class="back-link">← Back to Products</a>
         
         <div class="product-container">
-            <div class="product-image-container">
-                <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376" alt="Lounge Sofa" class="product-image">
-            </div>
+            
+    <div class="gallery">
+      <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376" id="main-image-25" class="main-image" alt="">
+      <div class="thumbnails">
+        <img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376" class="thumb active" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_8_e9662c1a-b591-492a-9169-5b8c264e8970.jpg?v=1776093376', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_9_07a36c7f-b965-432c-b0f6-368be2ebe5d2.jpg?v=1776093376" class="thumb" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_9_07a36c7f-b965-432c-b0f6-368be2ebe5d2.jpg?v=1776093376', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_1_73357b06-4df6-478c-b3f6-04bc5a6a4a28.jpg?v=1776093376" class="thumb" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_1_73357b06-4df6-478c-b3f6-04bc5a6a4a28.jpg?v=1776093376', this)" alt=""><img src="https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_12_7bb34c2b-932f-4f26-a1a6-b82b58e3be2a.jpg?v=1776093376" class="thumb" onclick="changeImage(25, 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/ASSOSkosekoltuktakimi_12_7bb34c2b-932f-4f26-a1a6-b82b58e3be2a.jpg?v=1776093376', this)" alt="">
+      </div>
+    </div>
+    <style>
+      .gallery { width: 100%; }
+      .main-image { width: 100%; border-radius: 0.5rem; background: #f1f5f9; margin-bottom: 1rem; }
+      .thumbnails { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .thumbnails img { width: 80px; height: 80px; object-fit: cover; border-radius: 0.25rem; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+      .thumbnails img:hover { border-color: #64748b; }
+      .thumbnails img.active { border-color: #0f172a; }
+    </style>
+    <script>
+      function changeImage(productId, src, thumb) {
+        document.getElementById('main-image-' + productId).src = src;
+        document.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      }
+    </script>
+  
             
             <div class="product-info">
                 <div class="product-category">Sofa</div>
