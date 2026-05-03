@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - NORDIVA HOME EUROPE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; }
+        
+        header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
+        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav a:hover { color: #1e293b; }
+        
+        .products { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .products h1 { font-size: 2rem; margin-bottom: 2rem; color: #1e293b; }
+        
+        .filters { margin-bottom: 2rem; }
+        .filter-btn { display: inline-block; padding: 0.5rem 1rem; margin-right: 0.5rem; margin-bottom: 0.5rem; border-radius: 9999px; background: white; border: 1px solid #e2e8f0; color: #64748b; cursor: pointer; text-decoration: none; font-size: 0.9rem; }
+        .filter-btn:hover, .filter-btn.active { background: #0f172a; color: white; border-color: #0f172a; }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        
+        .product-card { background: white; border-radius: 0.75rem; overflow: hidden; border: 1px solid #e2e8f0; transition: box-shadow 0.2s; }
+        .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .product-image { width: 100%; height: 250px; object-fit: cover; background: #f1f5f9; }
+        .product-info { padding: 1.5rem; }
+        .product-name { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem; }
+        .product-category { color: #64748b; font-size: 0.85rem; text-transform: uppercase; }
+        .product-price { color: #0f172a; font-weight: 600; margin-top: 0.5rem; }
+        .order-btn { display: block; width: 100%; margin-top: 1rem; padding: 0.75rem; background: #0f172a; color: white; text-align: center; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
+        .order-btn:hover { background: #1e293b; }
+        
+        footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">NORDIVA</a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/products.html">Products</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="products">
+        <h1>Our Products</h1>
+        
+        <div class="filters">
+            <a href="/products.html" class="filter-btn active" data-filter="all">All</a>
+            <a href="?category=sofa" class="filter-btn" data-filter="sofa">Sofas</a>
+            <a href="?category=corner_sofa" class="filter-btn" data-filter="corner_sofa">Corner Sofas</a>
+            <a href="?category=dining_table" class="filter-btn" data-filter="dining_table">Dining Tables</a>
+            <a href="?category=chair" class="filter-btn" data-filter="chair">Chairs</a>
+            <a href="?category=coffee_table" class="filter-btn" data-filter="coffee_table">Coffee Tables</a>
+            <a href="?category=furniture_set" class="filter-btn" data-filter="furniture_set">Furniture Sets</a>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const allProducts = [
+            {id: 1, name: 'Madrid Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madrid-sofa.png'},
+            {id: 2, name: 'Marea Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/marea-sofa.png'},
+            {id: 3, name: 'Assos Corner Sofa', category: 'corner_sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/assos-sofa.png'},
+            {id: 4, name: 'Nora Bed', category: 'bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nora-bed.png'},
+            {id: 5, name: 'Riva Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/riva-set.png'},
+            {id: 6, name: 'Rio Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/rio-set.png'},
+            {id: 7, name: 'Verta Seramik Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/verta-set.png'},
+            {id: 8, name: 'Roseir Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/roseir-set.png'},
+            {id: 9, name: 'Milano Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/milano-set.png'},
+            {id: 10, name: 'Noir Line Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/noir-set.png'},
+            {id: 11, name: 'Arno Furniture Set', category: 'furniture_set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/arno-set.png'},
+            {id: 12, name: 'Axis Oval Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/axis-table.png'},
+            {id: 13, name: 'Pure Marble Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/pure-marble.png'},
+            {id: 14, name: 'Urban Pearl Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/urban-table.png'},
+            {id: 15, name: 'Flute Beech Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/flute-beech.png'},
+            {id: 16, name: 'Moxie Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/moxie-chair.png'},
+            {id: 17, name: 'Apex Natural Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/apex-chair.png'},
+            {id: 18, name: 'Delta Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/delta-chair.png'},
+            {id: 19, name: 'Venice Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/venice-chair.png'},
+            {id: 20, name: 'Orbit Chair', category: 'chair', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/orbit-chair.png'},
+            {id: 21, name: 'Mono Triple Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/mono-triple.png'},
+            {id: 22, name: 'Metro Triple Coffee Table', category: 'coffee_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/metro-triple.png'},
+            {id: 23, name: 'Classic Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/classic-sofa.png'},
+            {id: 24, name: 'Modern Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/modern-sofa.png'},
+            {id: 25, name: 'Lounge Sofa', category: 'sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/lounge-sofa.png'},
+            {id: 26, name: 'Heritage Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/heritage-table.png'},
+            {id: 27, name: 'Nordic Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nordic-table.png'},
+            {id: 28, name: 'Cone Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/cone-table.png'},
+            {id: 29, name: 'Torino Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/torino-table.png'},
+            {id: 30, name: 'Masami Table', category: 'dining_table', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/masami-table.png'},
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        const products = category 
+            ? allProducts.filter(p => p.category === category)
+            : allProducts;
+
+        const grid = document.getElementById('product-grid');
+        products.forEach(p => {
+            grid.innerHTML += `
+                <div class="product-card">
+                    <img src="${p.image}" alt="${p.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x250?text=${encodeURIComponent(p.name)}'">
+                    <div class="product-info">
+                        <div class="product-category">${p.category.replace('_', ' ')}</div>
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">${p.price}</div>
+                        <a href="https://instagram.com/nordivahomeeurope" class="order-btn" target="_blank">Order via Instagram</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Highlight active filter
+        if (category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === category) btn.classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>

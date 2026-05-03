@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORDIVA HOME EUROPE - Premium Furniture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; }
+        
+        header { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #1e293b; text-decoration: none; }
+        nav a { margin-left: 2rem; color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        nav a:hover { color: #1e293b; }
+        
+        .hero { background: #0f172a; color: white; padding: 5rem 2rem; }
+        .hero-content { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; margin-bottom: 2rem; }
+        .btn { display: inline-block; background: white; color: #0f172a; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
+        
+        .products { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .products h2 { font-size: 2rem; margin-bottom: 2rem; color: #1e293b; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+        
+        .product-card { background: white; border-radius: 0.75rem; overflow: hidden; border: 1px solid #e2e8f0; transition: box-shadow 0.2s; }
+        .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .product-image { width: 100%; height: 250px; object-fit: cover; background: #f1f5f9; }
+        .product-info { padding: 1.5rem; }
+        .product-name { font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem; }
+        .product-category { color: #64748b; font-size: 0.85rem; text-transform: uppercase; }
+        .product-price { color: #0f172a; font-weight: 600; margin-top: 0.5rem; }
+        
+        footer { background: #0f172a; color: white; padding: 2rem; text-align: center; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">NORDIVA</a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/products.html">Products</a>
+                <a href="/about.html">About</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premium Furniture for Your Home</h1>
+            <p>Discover our collection of handcrafted furniture designed for modern living</p>
+            <a href="/products.html" class="btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid" id="featured-products"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NORDIVA HOME EUROPE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const products = [
+            {id: 1, name: 'Madrid Corner Sofa', category: 'Corner Sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/madrid-sofa.png'},
+            {id: 2, name: 'Marea Corner Sofa', category: 'Corner Sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/marea-sofa.png'},
+            {id: 3, name: 'Assos Corner Sofa', category: 'Corner Sofa', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/assos-sofa.png'},
+            {id: 4, name: 'Nora Bed', category: 'Bed', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/nora-bed.png'},
+            {id: 5, name: 'Riva Furniture Set', category: 'Furniture Set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/riva-set.png'},
+            {id: 6, name: 'Rio Furniture Set', category: 'Furniture Set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/rio-set.png'},
+            {id: 7, name: 'Verta Seramik Set', category: 'Furniture Set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/verta-set.png'},
+            {id: 8, name: 'Roseir Furniture Set', category: 'Furniture Set', price: 'Contact for Price', image: 'https://cdn.shopify.com/s/files/1/0766/8246/1355/files/roseir-set.png'},
+        ];
+
+        const grid = document.getElementById('featured-products');
+        products.forEach(p => {
+            grid.innerHTML += `
+                <div class="product-card">
+                    <img src="${p.image}" alt="${p.name}" class="product-image" onerror="this.src='https://via.placeholder.com/300x250?text=${encodeURIComponent(p.name)}'">
+                    <div class="product-info">
+                        <div class="product-category">${p.category}</div>
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-price">${p.price}</div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
